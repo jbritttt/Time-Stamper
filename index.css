@@ -1,84 +1,58 @@
-
-main{
-
-    width:55%;
-margin-left:30%
+main {
+  width: 55%;
+  margin-left: 30%;
 }
 
-
-header{
-
-    position:sticky;
-    top:0;
-    background-color:white;
-    padding:1rem;
-    text-align: left;
-    border-bottom: 1px solid rgb(167, 167, 167);
-    width:25%
+header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgb(167, 167, 167);
+  width: 25%;
 }
 
-
-header div{
-
-   
-    text-align: center;
-    
+header div {
+  text-align: center;
 }
 
-
-
-.btn-container{
-
-    display:flex;
-    justify-content: space-evenly;
-    padding:1rem;
-    width:55%;
-    margin:auto;
-   
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  width: 55%;
+  margin: auto;
 }
 
-
-.generate-button{
-
-    margin-top:3rem;
-    margin-bottom:8rem
+.generate-button {
+  margin-top: 3rem;
+  margin-bottom: 8rem;
 }
-
-
 
 .stamp-container {
-
-    padding:1rem
+  padding: 1rem;
 }
 
-.stamp-container .stamps{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    
-font-size:20px;
-font-family:arial;
-    margin:1rem;
-    padding-top:1rem;
-    padding-bottom:2rem;
-   
-    border-bottom:1px solid rgb(156, 156, 156)
+.stamp-container .stamps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 20px;
+  font-family: arial;
+  margin: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+
+  border-bottom: 1px solid rgb(156, 156, 156);
 }
 
-
-.stamp-container .stamps .title{
-    width:70%
+.stamp-container .stamps .title {
+  width: 70%;
 }
 
-
-
-
-
-
-
-#container{
-display:flex;
-flex-direction: column;
-
-    
+#container {
+  display: flex;
+  flex-direction: column;
 }
