@@ -8,16 +8,23 @@
   </head>
   <body>
     <header>
+
+        <div> 
       <h1>Time Stamper</h1>
-    </header>
+    
 
-<div><div id="container">
+<div id="container">
     <span id="counter"></span>
-    <button id="startBtn">Start Counter</button>
-    <button id="stopBtn">Stop Counter</button>
-    <button id="resetBtn">Reset Counter</button>
-  </div></div>
 
+    <div class="btn-container">
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <button id="resetBtn">Reset </button>
+
+</div>
+
+  </div></div>
+</header>
     <main>
       <section class="stamp-container"></section>
 
@@ -26,7 +33,7 @@
     </main>
 
     <footer>
-      
+    
     </footer>
 
     <script>
@@ -132,11 +139,14 @@
         } else {
           textBox.style.borderColor = "initial";
           placeHolder.placeholder = "";
-          stampContainer.innerHTML += `<div class="stamp"> ${textBox.value} ${counter.textContent}</div>`;
+          stampContainer.innerHTML += `<div class="stamps"> <div class="title">${textBox.value}</div><div class="time">${counter.textContent}</div> </div>`;
 
           textBox.value = "";
         }
       });
     </script>
+
+
+
   </body>
 </html>
