@@ -1,0 +1,13 @@
+
+body{
+
+    width:50%;
+margin:auto
+}
+
+#container{
+display:flex;
+flex-direction: column;
+
+    
+}
