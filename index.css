@@ -1,16 +1,23 @@
-main {
-  width: 55%;
-  margin-left: 30%;
-}
-
 header {
   position: sticky;
   top: 0;
   background-color: white;
   padding: 1rem;
+  padding-bottom: 3rem;
   text-align: left;
   border-bottom: 1px solid rgb(167, 167, 167);
   width: 25%;
+  height: 10rem;
+}
+
+h1 {
+  font-family: arial;
+  color: rgb(82, 82, 82);
+}
+
+main {
+  width: 55%;
+  margin-left: 30%;
 }
 
 header div {
@@ -23,11 +30,15 @@ header div {
   padding: 1rem;
   width: 55%;
   margin: auto;
+  margin-top: 0.5rem;
 }
 
-.generate-button {
-  margin-top: 3rem;
-  margin-bottom: 8rem;
+.timer-btn {
+  padding: 0.4rem;
+}
+
+#counter {
+  font-size: 26px;
 }
 
 .stamp-container {
@@ -55,4 +66,61 @@ header div {
 #container {
   display: flex;
   flex-direction: column;
+}
+
+.generate-container {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 3rem;
+  margin-bottom: 8rem;
+}
+
+.generate-button,
+#text-box {
+  padding: 0.5rem;
+}
+
+.modal {
+  position: absolute;
+  position: sticky;
+  top: 17rem;
+  background-color: white;
+  font-family: arial;
+  line-height: 25px;
+
+  width: 25%;
+  display: none;
+  border: 2px solid rgb(196, 0, 0);
+}
+
+.modal span {
+  display: flex;
+  justify-content: right;
+  font-size: 25px;
+  padding-right: 0.6rem;
+}
+
+.modal p {
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    text-align: center;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    width: 90%;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+    margin: auto;
+  }
+
+  .modal {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }

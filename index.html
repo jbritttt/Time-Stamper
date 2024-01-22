@@ -17,18 +17,29 @@
           <span id="counter"></span>
 
           <div class="btn-container">
-            <button id="startBtn">Start</button>
-            <button id="stopBtn">Stop</button>
-            <button id="resetBtn">Reset</button>
+            <button class="timer-btn" id="startBtn">Start</button>
+            <button class="timer-btn" id="stopBtn">Stop</button>
+            <button class="timer-btn" id="resetBtn">Reset</button>
           </div>
         </div>
       </div>
     </header>
+
+    <div class="modal">
+      <span class="close-modal">x</span>
+
+      <p>
+        you need to start or resume the timer before you can generate a new time
+        stamp!
+      </p>
+    </div>
+
     <main>
       <section class="stamp-container"></section>
-
-      <input id="text-box" class="text-box" type="text" />
-      <button class="generate-button">Generate</button>
+      <div class="generate-container">
+        <input id="text-box" class="text-box" type="text" />
+        <button class="generate-button">Generate</button>
+      </div>
     </main>
 
     <footer></footer>
