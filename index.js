@@ -3,7 +3,7 @@ const resetBtn = document.querySelector("#resetBtn");
 const startBtn = document.querySelector("#startBtn");
 const stopBtn = document.querySelector("#stopBtn");
 
-//change these terrible variable names so that they make more sense. Think in terms of tens and units when renaming.
+//change variable names so that they make more sense. Think in terms of tens and units when renaming.
 
 let seconds = 0;
 
@@ -11,11 +11,10 @@ let minutes = 0;
 
 let hours = 0;
 
-//hours = hours.toFixed(2)
-
 let hoursTwo = 0;
 
 counter.innerHTML = hoursTwo + ":" + hours + ":" + minutes + seconds;
+
 let interval;
 
 startBtn.addEventListener("click", startCounter);
@@ -55,10 +54,12 @@ function startCounter() {
 
     if (hours == 59 && minutes == 5 && seconds == 10) {
       hoursReset();
+      sessionTime();
     }
 
     if (minutes == 5 && seconds == 10) {
       minutesReset();
+      sessionTime();
     }
 
     if (seconds < 10) {
@@ -67,12 +68,15 @@ function startCounter() {
 
     if (seconds == 10) {
       secondsReset();
+      sessionTime();
     }
   }, 1000);
 }
 
 function stopCounter() {
   clearInterval(interval);
+
+  sessionTime();
 }
 
 function resetCounter() {
@@ -85,8 +89,7 @@ function resetCounter() {
   counter.innerHTML = hoursTwo + ":" + hours + ":" + minutes + seconds;
 }
 
-// functionality to create a new time stamp.
-// If program is any good then save data in local storage
+
 
 const stampContainer = document.querySelector(".stamp-container");
 
@@ -97,6 +100,12 @@ const textBox = document.querySelector(".text-box");
 const modal = document.querySelector(".modal");
 
 const closeModal = document.querySelector(".close-modal");
+
+let localArray = [];
+
+
+
+// functionality to create a new time stamp.//////////////////////////////////////////////////////////////////////
 
 generateButton.addEventListener("click", function () {
   const placeHolder = document.getElementById("text-box");
@@ -121,11 +130,48 @@ generateButton.addEventListener("click", function () {
     textBox.style.borderColor = "initial";
     modal.style.display = "none";
     placeHolder.placeholder = "";
+
+    let newsTimeStamps = {
+      title: textBox.value,
+      time: counter.textContent,
+    };
+
+    localArray.push(newsTimeStamps);
+
+    //console.log(localArray)
+
+    localStorage.clear();
+    localStorage.setItem(localArray, JSON.stringify(localArray));
+
     stampContainer.innerHTML += `<div class="stamps"> <div class="title">${textBox.value}</div><div class="time">${counter.textContent}</div> </div>`;
 
     textBox.value = "";
   }
 });
+
+
+// fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
+
+function updatePage() {
+  //object is stored in local storage as the value. I'm now accessing the object by referencing the value.
+  for (const [Title, Time] of Object.entries(localStorage)) {
+    localArray.push(Time);
+  }
+
+  let newLocalArray = JSON.parse(localArray);
+
+  localArray = newLocalArray;
+
+  console.log(localArray);
+
+  localArray.forEach((item) => {
+    stampContainer.innerHTML += `<div class="stamps"> <div class="title">${item.title}</div><div class="time">${item.time}</div> </div>`;
+  });
+}
+
+updatePage();
+
+
 
 //closes modal/popup
 closeModal.addEventListener("click", function () {
