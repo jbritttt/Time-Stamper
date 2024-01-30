@@ -14,7 +14,23 @@
         <h1>Time Stamper</h1>
 
         <div id="container">
-          <span id="counter"></span>
+          <div class="counter">
+            <input
+              class="countVals"
+              type="number"
+              id="hour-2-count"
+              value="0"
+            />
+            <span>:</span>
+            <input
+              class="countVals"
+              type="number"
+              id="hour-count"
+              value="0"
+            /><span>:</span>
+            <input class="countVals" type="number" id="min-count" value="0" />
+            <input class="countVals" type="number" id="sec-count" value="0" />
+          </div>
 
           <div class="btn-container">
             <button class="timer-start time-btn" id="startBtn">
@@ -56,6 +72,6 @@
       </div>
     </main>
 
-    <footer></footer>
+    <footer><h2>KICK START IT</h2></footer>
   </body>
 </html>

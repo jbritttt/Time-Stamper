@@ -1,3 +1,12 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  margin-bottom: 20rem;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -11,7 +20,8 @@ header {
   z-index: 10;
 }
 
-h1 {
+h1,
+h2 {
   font-family: arial;
   color: rgb(82, 82, 82);
 }
@@ -41,17 +51,16 @@ header div {
 }
 
 .time-btn img {
-  width: 30px;
-}
-
-#counter {
-  font-size: 26px;
+  width: 40px;
 }
 
 .stamp-container {
   padding: 1rem;
 }
 
+.stamp-container p {
+  text-align: center;
+}
 .generate-container {
   width: 70%;
   margin: auto;
@@ -205,6 +214,52 @@ header div {
 .modal p {
   padding: 1rem;
   padding-bottom: 2rem;
+}
+
+footer h2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+
+  background-color: black;
+  height: 1rem;
+  margin: 0;
+  padding: 1rem;
+  color: rgb(197, 197, 197);
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter .countVals {
+  font-family: arial;
+  width: 25px;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.counter span {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 5px;
+  padding: 0.3rem;
 }
 
 @media only screen and (max-width: 960px) {
