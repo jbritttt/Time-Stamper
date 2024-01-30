@@ -96,6 +96,7 @@ const closeModal = document.querySelector(".close-modal");
 
 let localArray = [];
 
+
 // functionality to create a new time stamp.//////////////////////////////////////////////////////////////////////
 
 generateButton.addEventListener("click", function () {
@@ -103,6 +104,8 @@ generateButton.addEventListener("click", function () {
 
   const timeStamps = document.querySelectorAll(".time");
 
+  
+  
   // prevents user from creating duplicate timestamps when the timer is paused.
   timeStamps.forEach((item) => {
     if (counter.textContent == item.textContent) {
@@ -134,10 +137,21 @@ generateButton.addEventListener("click", function () {
     localStorage.clear();
     localStorage.setItem(localArray, JSON.stringify(localArray));
 
-    stampContainer.innerHTML += `<div class="stamps"> <div class="title">${textBox.value}</div><div class="time">${counter.textContent}</div> </div>`;
+    stampContainer.innerHTML += `<div class="stamps"> <div class="title clipboard">${textBox.value}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div><div>${counter.textContent}</div> </div>`;
 
     textBox.value = "";
+    
+    let stamp = document.querySelectorAll(".stamps");
+
+    stamp.forEach((item) => {
+      item.addEventListener("click", function (e) {
+        item.firstElementChild.nextElementSibling.style.display = "flex";
+        console.log('fired')
+      });
+    });
   }
+
+  
 });
 
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
@@ -171,15 +185,19 @@ closeModal.addEventListener("click", function () {
 
 
 let deleteModal = document.querySelectorAll(".delete-modal");
-let stamp = document.querySelectorAll(".stamps");
+
 
 let btn = document.querySelector(".btn");
+
+
+let stamp = document.querySelectorAll(".stamps");
 
 
 
 stamp.forEach((item) => {
   item.addEventListener("click", function (e) {
     item.firstElementChild.nextElementSibling.style.display = "flex";
+    console.log('fired')
   });
 });
 
