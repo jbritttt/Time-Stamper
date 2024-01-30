@@ -48,6 +48,7 @@ function hoursReset() {
 }
 
 function startCounter() {
+  startBtn.style.pointerEvents = "none"
   modal.style.display = "none";
   interval = setInterval(function () {
     seconds = seconds + 1;
@@ -72,10 +73,12 @@ function startCounter() {
 
 function stopCounter() {
   clearInterval(interval);
+  startBtn.style.pointerEvents = "initial"
 }
 
 function resetCounter() {
   clearInterval(interval);
+  startBtn.style.pointerEvents = "initial"
   seconds = 0;
   minutes = 0;
 
@@ -124,7 +127,7 @@ generateButton.addEventListener("click", function () {
     textBox.style.borderColor = "initial";
     modal.style.display = "none";
     placeHolder.placeholder = "";
-
+    
     let newsTimeStamps = {
       title: textBox.value,
       time: counter.textContent,
