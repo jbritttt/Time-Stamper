@@ -12,3 +12,12 @@
 // update timer on click
 // push to localArray and save in local storage
 
+
+// create functionality to delete all stamps from local storage
+
+
+// fix bugs
+
+// play button can be clicked multiple times which starts a new interval
+// delete modal doesnt show after generating a new stamp.
+
