@@ -35,23 +35,14 @@ header div {
 }
 
 .time-btn {
-
   background-color: white;
-    border:none;
-    cursor:pointer
-    
-  }
-
-.time-btn img{
-
-width:30px
-  
-  
+  border: none;
+  cursor: pointer;
 }
 
-
-
-
+.time-btn img {
+  width: 30px;
+}
 
 #counter {
   font-size: 26px;
@@ -59,14 +50,37 @@ width:30px
 
 .stamp-container {
   padding: 1rem;
-  
-  
 }
 
+.generate-container {
+  width: 70%;
+  margin: auto;
+  position: relative;
+}
 
+.generate-container .generate-button,
+.generate-container .clear-data,
+.generate-container .btn-wrapper-data .btn {
+  padding: 0.6rem 1.3rem;
+  color: white;
+  background-color: black;
+  font-size: 14px;
+  font-family: arial;
+  letter-spacing: 0.07rem;
+  cursor: pointer;
+}
+
+.btn-wrapper-data .btn {
+  margin: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.generate-container .clear-data {
+  margin-right: auto;
+}
 
 .stamp-container .stamps {
-  position:relative;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,54 +99,69 @@ width:30px
   width: 70%;
 }
 
-.delete-modal{
-  display:flex;
- gap:1rem;
+.delete-modal {
+  display: flex;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
-  display:none;
-  width:50%;
-  height:80%;
+  display: none;
+  width: 50%;
+  height: 80%;
   position: absolute;
-margin-left: auto;
-margin-right: auto;
-left: 0;
-right: 0;
-text-align: center;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-background-color: white;
-
-
-  
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: white;
 }
 
-.delete-modal span{
-font-size: 15px;
-font-weight: 600;
-font-family: arial;
-
-
-  
-}
-
-
-
-.btn-wrapper{
-  display:flex;
-  justify-content: center;
-  
-}
-
-.btn-container .btn, .btn-wrapper .btn{
-  margin:.3rem;
-  padding:.3rem 1rem;
-  background-color: black;
-  color:white;
+.delete-modal span {
+  font-size: 16px;
+  font-weight: 600;
   font-family: arial;
-  border-radius:5px;
-  
 }
 
+.delete-data-modal {
+  display: none;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: white;
+  border: 2px solid rgb(196, 0, 0);
+  padding: 2rem;
+}
+
+.delete-data-modal span {
+  font-family: arial;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container .btn,
+.btn-wrapper .btn {
+  margin: 0.3rem;
+  padding: 0.3rem 1rem;
+  background-color: black;
+  color: white;
+  font-family: arial;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 #container {
   display: flex;
@@ -170,6 +199,7 @@ font-family: arial;
   justify-content: right;
   font-size: 25px;
   padding-right: 0.6rem;
+  cursor: pointer;
 }
 
 .modal p {
@@ -177,17 +207,10 @@ font-family: arial;
   padding-bottom: 2rem;
 }
 
-
 @media only screen and (max-width: 960px) {
-  .delete-modal{
-  
-    width:100%
-    
-    
-      
-    }
-
-
+  .delete-modal {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -208,8 +231,4 @@ font-family: arial;
     width: 100%;
     margin-bottom: 2rem;
   }
-
- 
-
-
 }

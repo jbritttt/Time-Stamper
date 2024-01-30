@@ -17,9 +17,15 @@
           <span id="counter"></span>
 
           <div class="btn-container">
-            <button class="timer-start time-btn" id="startBtn"><img src="image/play-button.png" alt=""></button>
-            <button class="timer-stop time-btn" id="stopBtn"><img src="image/stop-button.png" alt=""></button>
-            <button class="timer-reset time-btn" id="resetBtn"><img src="image/reset.png" alt=""></button>
+            <button class="timer-start time-btn" id="startBtn">
+              <img src="image/play-button.png" alt="" />
+            </button>
+            <button class="timer-stop time-btn" id="stopBtn">
+              <img src="image/stop-button.png" alt="" />
+            </button>
+            <button class="timer-reset time-btn" id="resetBtn">
+              <img src="image/reset.png" alt="" />
+            </button>
           </div>
         </div>
       </div>
@@ -37,15 +43,19 @@
     <main>
       <section class="stamp-container"></section>
       <div class="generate-container">
+        <button class="clear-data">Clear Data</button>
+        <div class="delete-data-modal">
+          <span>Are You Sure You Want To Delete All Data?</span>
+          <div class="btn-wrapper-data">
+            <button class="btn btn-del">Yes</button
+            ><button class="btn btn-close">No</button>
+          </div>
+        </div>
         <input id="text-box" class="text-box" type="text" />
         <button class="generate-button">Generate</button>
       </div>
     </main>
 
-  
     <footer></footer>
-
-  
-
   </body>
 </html>

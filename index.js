@@ -188,7 +188,7 @@ closeModal.addEventListener("click", function () {
 
 
 
-let deleteModal = document.querySelectorAll(".delete-modal");
+let deleteDataModal = document.querySelector(".delete-data-modal");
 
 
 let btn = document.querySelector(".btn");
@@ -196,12 +196,37 @@ let btn = document.querySelector(".btn");
 
 let stamp = document.querySelectorAll(".stamps");
 
+let clearData = document.querySelector(".clear-data");
+
+
+clearData.addEventListener("click", function () {
+  deleteDataModal.style.display = "block"
+  console.log('clicked')
+  });
+
+
+  deleteDataModal.addEventListener("click", function (e) {
+   if(e.target.classList.contains("btn-del")){
+
+localStorage.clear()
+deleteDataModal.style.display = "none"
+stampContainer.innerHTML = ''
+   }
+
+   if(e.target.classList.contains("btn-close")){
+    deleteDataModal.style.display = "none"
+
+
+   }
+    });
+  
+
 
 
 stamp.forEach((item) => {
   item.addEventListener("click", function (e) {
     item.firstElementChild.nextElementSibling.style.display = "flex";
-    console.log('fired')
+   
   });
 });
 
