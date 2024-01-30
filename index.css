@@ -201,6 +201,7 @@ header div {
   width: 25%;
   display: none;
   border: 2px solid rgb(196, 0, 0);
+  z-index:22
 }
 
 .modal span {
