@@ -8,6 +8,7 @@ header {
   border-bottom: 1px solid rgb(167, 167, 167);
   width: 25%;
   height: 10rem;
+  z-index: 10;
 }
 
 h1 {
@@ -33,9 +34,24 @@ header div {
   margin-top: 0.5rem;
 }
 
-.timer-btn {
-  padding: 0.4rem;
+.time-btn {
+
+  background-color: white;
+    border:none;
+    cursor:pointer
+    
+  }
+
+.time-btn img{
+
+width:30px
+  
+  
 }
+
+
+
+
 
 #counter {
   font-size: 26px;
@@ -43,9 +59,14 @@ header div {
 
 .stamp-container {
   padding: 1rem;
+  
+  
 }
 
+
+
 .stamp-container .stamps {
+  position:relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,15 +74,65 @@ header div {
   font-size: 20px;
   font-family: arial;
   margin: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
 
   border-bottom: 1px solid rgb(156, 156, 156);
+  cursor: pointer;
 }
 
 .stamp-container .stamps .title {
   width: 70%;
 }
+
+.delete-modal{
+  display:flex;
+ gap:1rem;
+  justify-content: center;
+  align-items: center;
+  display:none;
+  width:50%;
+  height:80%;
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+background-color: white;
+
+
+  
+}
+
+.delete-modal span{
+font-size: 15px;
+font-weight: 600;
+font-family: arial;
+
+
+  
+}
+
+
+
+.btn-wrapper{
+  display:flex;
+  justify-content: center;
+  
+}
+
+.btn-container .btn, .btn-wrapper .btn{
+  margin:.3rem;
+  padding:.3rem 1rem;
+  background-color: black;
+  color:white;
+  font-family: arial;
+  border-radius:5px;
+  
+}
+
 
 #container {
   display: flex;
@@ -106,11 +177,25 @@ header div {
   padding-bottom: 2rem;
 }
 
+
+@media only screen and (max-width: 960px) {
+  .delete-modal{
+  
+    width:100%
+    
+    
+      
+    }
+
+
+}
+
 @media only screen and (max-width: 600px) {
   header {
     text-align: center;
     border-bottom: 1px solid rgb(167, 167, 167);
     width: 90%;
+    background-color: white;
   }
 
   main {
@@ -123,4 +208,8 @@ header div {
     width: 100%;
     margin-bottom: 2rem;
   }
+
+ 
+
+
 }

@@ -54,12 +54,10 @@ function startCounter() {
 
     if (hours == 59 && minutes == 5 && seconds == 10) {
       hoursReset();
-      sessionTime();
     }
 
     if (minutes == 5 && seconds == 10) {
       minutesReset();
-      sessionTime();
     }
 
     if (seconds < 10) {
@@ -68,15 +66,12 @@ function startCounter() {
 
     if (seconds == 10) {
       secondsReset();
-      sessionTime();
     }
   }, 1000);
 }
 
 function stopCounter() {
   clearInterval(interval);
-
-  sessionTime();
 }
 
 function resetCounter() {
@@ -89,8 +84,6 @@ function resetCounter() {
   counter.innerHTML = hoursTwo + ":" + hours + ":" + minutes + seconds;
 }
 
-
-
 const stampContainer = document.querySelector(".stamp-container");
 
 const generateButton = document.querySelector(".generate-button");
@@ -102,8 +95,6 @@ const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".close-modal");
 
 let localArray = [];
-
-
 
 // functionality to create a new time stamp.//////////////////////////////////////////////////////////////////////
 
@@ -149,7 +140,6 @@ generateButton.addEventListener("click", function () {
   }
 });
 
-
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
 
 function updatePage() {
@@ -165,15 +155,58 @@ function updatePage() {
   console.log(localArray);
 
   localArray.forEach((item) => {
-    stampContainer.innerHTML += `<div class="stamps"> <div class="title">${item.title}</div><div class="time">${item.time}</div> </div>`;
+    stampContainer.innerHTML += `<div class="stamps"> <div class="title clipboard">${item.title}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div><div>${item.time}</div> </div>`;
   });
 }
 
 updatePage();
 
-
-
 //closes modal/popup
 closeModal.addEventListener("click", function () {
   modal.style.display = "none";
+});
+
+
+
+
+
+let deleteModal = document.querySelectorAll(".delete-modal");
+let stamp = document.querySelectorAll(".stamps");
+
+let btn = document.querySelector(".btn");
+
+
+
+stamp.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    item.firstElementChild.nextElementSibling.style.display = "flex";
+  });
+});
+
+
+
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("btn-hide")) {
+    e.target.parentElement.parentElement.style.display = "none";
+  }
+  if (e.target.classList.contains("btn-delete")) {
+    let stampTitle =
+      e.target.parentElement.parentElement.parentElement.firstElementChild
+        .innerHTML;
+
+    localArray.forEach((item) => {
+      if (item.title == stampTitle) {
+        let itemIndex = localArray.indexOf(item);
+        localArray.splice(itemIndex, 1);
+        localStorage.clear();
+        localStorage.setItem(localArray, JSON.stringify(localArray));
+        console.log(localArray);
+      }
+    });
+
+    
+
+    e.target.parentElement.parentElement.parentElement.style.display = "none";
+  }
 });
