@@ -140,7 +140,8 @@ generateButton.addEventListener("click", function () {
     localStorage.clear();
     localStorage.setItem(localArray, JSON.stringify(localArray));
 
-    stampContainer.innerHTML += `<div class="stamps"> <div class="title clipboard">${textBox.value}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div><div>${counter.textContent}</div> </div>`;
+    stampContainer.innerHTML += `<div class="stamps"> <div class="title clipboard">${textBox.value}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div><div class="time">${counter.textContent}</div> </div>`;
+
 
     textBox.value = "";
     
