@@ -210,10 +210,15 @@ generateButton.addEventListener("click", function () {
 
 function updatePage() {
   //object is stored in local storage as the value. I'm now accessing the object by referencing the value.
+ 
+ if(localArray > 0){
   for (const [Title, Time] of Object.entries(localStorage)) {
     localArray.push(Time);
   }
 
+
+ 
+ 
   let newLocalArray = JSON.parse(localArray);
 
   localArray = newLocalArray;
@@ -223,6 +228,8 @@ function updatePage() {
   localArray.forEach((item) => {
     stampContainer.innerHTML += `<div class="stamps"> <div class="title clipboard">${item.title}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div><div>${item.time}</div> </div>`;
   });
+
+}
 }
 
 updatePage();
@@ -247,9 +254,37 @@ let stamp = document.querySelectorAll(".stamps");
 let clearData = document.querySelector(".clear-data");
 
 
+
+console.log(localArray)
+
 clearData.addEventListener("click", function () {
-  deleteDataModal.style.display = "block"
+
+ 
+  if(localArray){
+    
+    deleteDataModal.innerHTML = `<span class="close-modal">x</span><p>Sorry, You Dont Have Any Time Stamps <br>Create Your First Stamp!</p>`
+    
+    deleteDataModal.style.display = "block"
+    
+    setTimeout(delay, 2500)
+function delay(){
+  deleteDataModal.style.display = "none"
+
+}
+
+  }else
+  {
+    deleteDataModal.style.display = "block"
+  }
+
+  
+
+  
   console.log('clicked')
+
+
+
+  
   });
 
 

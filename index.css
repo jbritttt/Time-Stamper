@@ -1,6 +1,8 @@
 body {
   padding: 0;
   margin: 0;
+  max-width: 1235px;
+  margin:auto
 }
 
 main {
@@ -150,7 +152,27 @@ header div {
   padding: 2rem;
 }
 
-.delete-data-modal span {
+.delete-data-modal p {
+  font-family: arial;
+  font-size: 16px;
+  font-weight: 600;
+  line-height:30px
+}
+
+.delete-data-modal .close-modal{
+
+  display: flex;
+
+  justify-content: right;
+  font-size:22px;
+  margin:0;
+  padding:0;
+  cursor:pointer
+}
+
+
+
+.delete-data-modal span{
   font-family: arial;
   font-size: 16px;
   font-weight: 600;
