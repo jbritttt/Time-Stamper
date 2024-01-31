@@ -267,7 +267,10 @@ footer h2 {
   font-weight: 600;
   border: none;
   text-align: center;
+  cursor:pointer
 }
+
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
