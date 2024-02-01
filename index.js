@@ -111,7 +111,7 @@ function resetCounter() {
   minutes = 0;
 
   hours = 0;
-
+hoursTwo = 0 
   setTimerInputValues()
 }
 
@@ -158,13 +158,28 @@ generateButton.addEventListener("click", function () {
   
   
   // prevents user from creating duplicate timestamps when the timer is paused.
-  timeStamps.forEach((item) => {
+   timeStamps.forEach((item) => {
     if (compareCounterWithTitle == item.textContent) {
+    
       modal.style.display = "block";
-      console.log("hello");
-    }
-  });
+      modal.innerHTML = `<span class="close-modal">x</span>
+      <p>You cant create a duplicate timestamp</p>`
+      console.log("You cant create a duplicate timestamp");
 
+setTimeout(hide, 2000)
+
+function hide(){
+  modal.style.display = "none";
+
+}
+
+    }
+
+    
+  }); 
+
+
+  
   if (textBox.value == "") {
     placeHolder.placeholder = "Enter a Description!";
     textBox.style.borderColor = "red";
@@ -192,7 +207,6 @@ generateButton.addEventListener("click", function () {
 
 
     textBox.value = "";
-    
     let stamp = document.querySelectorAll(".stamps");
 
     stamp.forEach((item) => {
@@ -200,11 +214,48 @@ generateButton.addEventListener("click", function () {
         item.firstElementChild.nextElementSibling.style.display = "flex";
         console.log('fired')
       });
+
+      
     });
+
+    closeModal.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("btn-hide")) {
+        e.target.parentElement.parentElement.style.display = "none";
+      }
+      if (e.target.classList.contains("btn-delete")) {
+        let stampTitle =
+          e.target.parentElement.parentElement.parentElement.firstElementChild
+            .innerHTML;
+    
+        localArray.forEach((item) => {
+          if (item.title == stampTitle) {
+            let itemIndex = localArray.indexOf(item);
+            localArray.splice(itemIndex, 1);
+            localStorage.clear();
+            localStorage.setItem(localArray, JSON.stringify(localArray));
+            console.log(localArray);
+          }
+        });
+    
+        
+    
+        e.target.parentElement.parentElement.parentElement.style.display = "none";
+      }
+    });
+
+    
   }
 
   
 });
+
+
+
+
 
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
 
@@ -259,8 +310,19 @@ clearData.addEventListener("click", function () {
   });
 
 
+  stamp.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      item.firstElementChild.nextElementSibling.style.display = "flex";
+     
+    });
+  });
+
+
   deleteDataModal.addEventListener("click", function (e) {
    if(e.target.classList.contains("btn-del")){
+
+    localArray = []
+    //newLocalArray = []
 
 localStorage.clear()
 deleteDataModal.style.display = "none"
@@ -274,15 +336,6 @@ stampContainer.innerHTML = ''
    }
     });
   
-
-
-
-stamp.forEach((item) => {
-  item.addEventListener("click", function (e) {
-    item.firstElementChild.nextElementSibling.style.display = "flex";
-   
-  });
-});
 
 
 
