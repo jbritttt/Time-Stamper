@@ -247,6 +247,25 @@ function hide(){
       }
     });
 
+    let deleteDataModal = document.querySelector(".delete-data-modal");
+    deleteDataModal.addEventListener("click", function (e) {
+      if(e.target.classList.contains("btn-del")){
+   
+       localArray = []
+       //newLocalArray = []
+   
+   localStorage.clear()
+   deleteDataModal.style.display = "none"
+   stampContainer.innerHTML = ''
+      }
+   
+      if(e.target.classList.contains("btn-close")){
+       deleteDataModal.style.display = "none"
+   
+   
+      }
+       });
+
     
   }
 
