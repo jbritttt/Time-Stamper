@@ -170,7 +170,24 @@ setTimeout(hide, 2000)
 
 function hide(){
   modal.style.display = "none";
-
+  let deleteDataModal = document.querySelector(".delete-data-modal");
+  deleteDataModal.addEventListener("click", function (e) {
+    if(e.target.classList.contains("btn-del")){
+ 
+     localArray = []
+     //newLocalArray = []
+ 
+ localStorage.clear()
+ deleteDataModal.style.display = "none"
+ stampContainer.innerHTML = ''
+    }
+ 
+    if(e.target.classList.contains("btn-close")){
+     deleteDataModal.style.display = "none"
+ 
+ 
+    }
+     });
 }
 
     }
@@ -246,25 +263,7 @@ function hide(){
         e.target.parentElement.parentElement.parentElement.style.display = "none";
       }
     });
-
-    let deleteDataModal = document.querySelector(".delete-data-modal");
-    deleteDataModal.addEventListener("click", function (e) {
-      if(e.target.classList.contains("btn-del")){
-   
-       localArray = []
-       //newLocalArray = []
-   
-   localStorage.clear()
-   deleteDataModal.style.display = "none"
-   stampContainer.innerHTML = ''
-      }
-   
-      if(e.target.classList.contains("btn-close")){
-       deleteDataModal.style.display = "none"
-   
-   
-      }
-       });
+    
 
     
   }
@@ -273,17 +272,18 @@ function hide(){
 });
 
 
-
-
-
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
 
 function updatePage() {
   //object is stored in local storage as the value. I'm now accessing the object by referencing the value.
+  
+  
+  
   for (const [Title, Time] of Object.entries(localStorage)) {
     localArray.push(Time);
   }
 
+  
   let newLocalArray = JSON.parse(localArray);
 
   localArray = newLocalArray;
@@ -339,11 +339,16 @@ clearData.addEventListener("click", function () {
 
   deleteDataModal.addEventListener("click", function (e) {
    if(e.target.classList.contains("btn-del")){
+    
 
+for (const [Title, Time] of Object.entries(localStorage)) {
+localArray.push(Time);
+}
     localArray = []
     //newLocalArray = []
 
-localStorage.clear()
+    localStorage.clear();
+    localStorage.setItem(localArray, JSON.stringify(localArray))
 deleteDataModal.style.display = "none"
 stampContainer.innerHTML = ''
    }
@@ -355,9 +360,6 @@ stampContainer.innerHTML = ''
    }
     });
   
-
-
-
 
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("btn-hide")) {
