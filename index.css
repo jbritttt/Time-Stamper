@@ -22,6 +22,25 @@ header {
   z-index: 10;
 }
 
+header .logo{
+width:200px;
+margin:1.3rem
+}
+
+
+.vid-title{
+
+  font-size:20px;
+  font-weight:bold;
+  color:rgb(68, 68, 68);
+  padding:1rem;
+  border-bottom:5px solid rgb(102, 9, 9);
+  border-bottom-right-radius: 30%;
+  border-bottom-left-radius: 5%;
+  
+  
+}
+
 h1,
 h2 {
   font-family: arial;
@@ -60,11 +79,35 @@ header div {
   padding: 1rem;
 }
 
+
+.radio-btn{
+
+  margin:1rem;
+  font-family:arial;
+  font-size:12px
+}
+
+.radio-btn .container{
+
+ 
+  font-size:20px
+}
+
+
+
 .stamp-container p {
   text-align: center;
 }
+
+
+
+
 .generate-container {
   display:flex;
+  justify-content: center;
+
+  margin-top: 3rem;
+  margin-bottom: 8rem;
   flex-direction: column;
   width: 70%;
   margin: auto;
@@ -224,12 +267,11 @@ header div {
   flex-direction: column;
 }
 
-.generate-container {
-  display: flex;
-  justify-content: center;
 
-  margin-top: 3rem;
-  margin-bottom: 8rem;
+.container{
+
+  margin:0;
+  padding:0
 }
 
 .generate-button,
@@ -386,6 +428,13 @@ input::-webkit-inner-spin-button {
 }
 
 
+
+@media only screen and (max-width: 1010px) {
+  .generate-container {
+ width:100%
+   
+  }
+}
 
 @media only screen and (max-width: 960px) {
   .delete-modal {

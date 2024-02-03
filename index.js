@@ -256,7 +256,7 @@ console.log(stampTitle)
     localStorage.clear();
     localStorage.setItem(localArray, JSON.stringify(localArray));
 
-    stampContainer.innerHTML += `<div class="stamps stamps-title"> <div class="title">${textBox.value}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div> </div>`;
+    stampContainer.innerHTML += `<div class="stamps stamps-title"> <div class="title vid-title">${textBox.value}</div><div class="delete-modal"><span>Delete?</span> <div class="btn-wrapper"><button class="btn btn-delete">Yes</button><button class="btn btn-hide">No</button></div></div> </div>`;
 
     textBox.value = "";
     let stamp = document.querySelectorAll(".stamps");
@@ -334,7 +334,7 @@ function updatePage() {
   localArray.forEach((item) => {
     
    
-    stampContainer.innerHTML += `<div class="stamps stamps-title"><div id="vid-title-modal" class="delete-modal">
+    stampContainer.innerHTML += `<div class="stamps stamps-title "><div id="vid-title-modal" class="delete-modal">
     <span>Delete?</span> 
     <div class="btn-wrapper">
       <button class="btn btn-delete2">Yes</button>
