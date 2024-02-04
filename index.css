@@ -5,9 +5,7 @@ body {
   margin:auto
 }
 
-main {
-  margin-bottom: 20rem;
-}
+
 
 header {
   position: sticky;
@@ -28,24 +26,17 @@ margin:1.3rem
 }
 
 
-.vid-title{
 
-  font-size:20px;
-  font-weight:bold;
-  color:rgb(68, 68, 68);
-  padding:1rem;
-  border-bottom:5px solid rgb(102, 9, 9);
-  border-bottom-right-radius: 30%;
-  border-bottom-left-radius: 5%;
-  
-  
-}
+
 
 h1,
 h2 {
   font-family: arial;
   color: rgb(82, 82, 82);
 }
+
+
+
 
 main {
   width: 55%;
@@ -78,6 +69,17 @@ header div {
 .stamp-container {
   padding: 1rem;
 }
+
+
+.stamp-container .todays-date {
+  font-family: arial;
+  width:100%;
+  text-align: right;
+  font-weight: 600;
+  color:rgb(95, 95, 95)
+  
+}
+
 
 
 .radio-btn{
@@ -170,8 +172,20 @@ header div {
   }
   
 
+  .stamp-container .stamps-title .vid-title{
 
-
+    font-size:20px;
+    font-weight:bold;
+    color:rgb(68, 68, 68);
+    padding:1rem;
+    border-bottom:5px solid rgb(102, 9, 9);
+    border-bottom-right-radius: 30%;
+    border-bottom-left-radius: 5%;
+    
+    
+  }
+  
+ 
 
 
 .stamp-container .stamps .title {
@@ -356,7 +370,8 @@ input::-webkit-inner-spin-button {
 }
 
 .create-new-item{
-  display:flex
+  display:flex;
+  margin-bottom:20rem
 }
 
 /* Customize the label (the container) */

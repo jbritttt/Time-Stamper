@@ -1,3 +1,16 @@
+const date = new Date()
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+let currentDate = `${day}-${month}-${year}`;
+
+// This arrangement can be altered based on how we want the date's format to appear.
+
+let todaysDate = document.querySelector(".todays-date");
+
+todaysDate.textContent = currentDate
+
 let secondsHtml = document.querySelector("#sec-count");
 let minutessHtml = document.querySelector("#min-count");
 let hoursHtml = document.querySelector("#hour-count");
@@ -317,7 +330,10 @@ console.log(stampTitle)
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
 
 function updatePage() {
+
+  
   //object is stored in local storage as the value. I'm now accessing the object by referencing the value.
+
 
   for (const [Title, Time] of Object.entries(localStorage)) {
     localArray.push(Time);
@@ -457,6 +473,8 @@ deleteDataModal.addEventListener("click", function (e) {
     localStorage.setItem(localArray, JSON.stringify(localArray));
     deleteDataModal.style.display = "none";
     stampContainer.innerHTML = "";
+    
+    
   }
 
   if (e.target.classList.contains("btn-close")) {
