@@ -15,6 +15,8 @@
 // place angry emojis beside angry stamps and spin them 360. fade out
 // place thumbs up beside normal stamps. fade out
 
+// generate and display a random GIF each page refresh. Place this somewhere that isnt distracting, maybe an appropriate size will work anywhere.
+
 
 
 // when recording ends?
