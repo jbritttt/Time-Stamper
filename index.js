@@ -424,10 +424,6 @@ stampsTitle.forEach((item) => {
   });
 
 
-  
-
-
-
 }
 
 updatePage();
