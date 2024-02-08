@@ -3,5 +3,18 @@
 // Event listener code is repeated many times. Refactor by calling the event listeners by invoking them.
 
 
-//Use puppeteer to grab recording timer value from ms teams
+// when recording starts?
 
+// Use puppeteer to check if recording icon exsists on teams.
+// Initiate timer on backend
+// decrement 18000
+// create end points
+// request timer value on frontend
+// make stamps automatically post after 15000 if create button isnt clicked and show a countdown 
+// create quick paste keywords / phrases: Key takeaway, Assignment hints, Bug: , Resolved:, Kevin angry, Paul angry, Patricia angry. 
+// place angry emojis beside angry stamps and spin them 360. fade out
+// place thumbs up beside normal stamps. fade out
+
+
+
+// when recording ends?
