@@ -11,12 +11,14 @@
 // create end points
 // request timer value on frontend
 // make stamps automatically post after 15000 if create button isnt clicked and show a countdown 
-// create quick paste keywords / phrases: Key takeaway, Assignment hints, Bug: , Resolved:, Kevin angry, Paul angry, Patricia angry. 
-// place angry emojis beside angry stamps and spin them 360. fade out
+// create quick paste keywords / phrases: Key takeaway, Assignment hints, Bug: , Resolved: Ignore, Question
 // place thumbs up beside normal stamps. fade out
 
 // generate and display a random GIF each page refresh. Place this somewhere that isnt distracting, maybe an appropriate size will work anywhere.
 
+
+// Validate title input field
+// fix bug: Some stamps are not removed from page when deleteing after page refresh although they do delete from local storage.
 
 
 // when recording ends?
