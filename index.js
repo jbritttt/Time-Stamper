@@ -1,4 +1,4 @@
-const date = new Date()
+const date = new Date();
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
@@ -9,7 +9,7 @@ let currentDate = `${day}-${month}-${year}`;
 
 let todaysDate = document.querySelector(".todays-date");
 
-todaysDate.textContent = currentDate
+todaysDate.textContent = currentDate;
 
 let secondsHtml = document.querySelector("#sec-count");
 let minutessHtml = document.querySelector("#min-count");
@@ -148,7 +148,13 @@ check.forEach((item) => {
 generateButton.addEventListener("click", function () {
   const placeHolder = document.getElementById("text-box");
   const timeStamps = document.querySelectorAll(".time");
-  console.log(titleOrStamp);
+  console.log("clicked", titleOrStamp);
+
+  if (textBox.value == "") {
+    placeHolder.placeholder = "Enter a Description!";
+    textBox.style.borderColor = "red";
+    return;
+  }
 
   let my_arr = Array.from(timeStamps);
 
@@ -190,10 +196,7 @@ generateButton.addEventListener("click", function () {
       }
     }
 
-    if (textBox.value == "") {
-      placeHolder.placeholder = "Enter a Description!";
-      textBox.style.borderColor = "red";
-    } else if (compareCounterWithTitle == "0:0:00") {
+    if (compareCounterWithTitle == "0:0:00") {
       console.log("The timer hasnt been started");
       modal.style.display = "block";
     } else if (modal.style.display !== "block") {
@@ -217,7 +220,7 @@ generateButton.addEventListener("click", function () {
 
       textBox.value = "";
       let stamp = document.querySelectorAll(".stamps");
-// This is repeat code invoke the one event listener
+      // This is repeat code invoke the one event listener
       stamp.forEach((item) => {
         item.addEventListener("click", function (e) {
           item.firstElementChild.nextElementSibling.style.display = "flex";
@@ -228,7 +231,7 @@ generateButton.addEventListener("click", function () {
       closeModal.addEventListener("click", function () {
         modal.style.display = "none";
       });
-// This is repeat code invoke the one event listener
+      // This is repeat code invoke the one event listener
       document.addEventListener("click", function (e) {
         if (e.target.classList.contains("btn-hide")) {
           e.target.parentElement.parentElement.style.display = "none";
@@ -237,8 +240,8 @@ generateButton.addEventListener("click", function () {
           let stampTitle =
             e.target.parentElement.parentElement.parentElement.firstElementChild
               .innerHTML;
-console.log(stampTitle)
-              
+          console.log(stampTitle);
+
           localArray.forEach((item) => {
             if (item.title == stampTitle) {
               let itemIndex = localArray.indexOf(item);
@@ -255,11 +258,8 @@ console.log(stampTitle)
       });
     }
   } else {
-
-
     let newsTimeStamps = {
       videoTitle: textBox.value,
-      
     };
 
     localArray.push(newsTimeStamps);
@@ -274,7 +274,7 @@ console.log(stampTitle)
     textBox.value = "";
     let stamp = document.querySelectorAll(".stamps");
 
-// This is repeat code invoke the one event listener
+    // This is repeat code invoke the one event listener
     stamp.forEach((item) => {
       item.addEventListener("click", function (e) {
         item.firstElementChild.nextElementSibling.style.display = "flex";
@@ -282,14 +282,12 @@ console.log(stampTitle)
       });
     });
 
-// This is repeat code invoke the one event listener
+    // This is repeat code invoke the one event listener
     closeModal.addEventListener("click", function () {
       modal.style.display = "none";
     });
 
-
-
-// This is repeat code invoke the one event listener
+    // This is repeat code invoke the one event listener
 
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("btn-hide")) {
@@ -297,13 +295,14 @@ console.log(stampTitle)
       }
       if (e.target.classList.contains("btn-delete")) {
         let stampTitle =
-        e.target.parentElement.parentElement.parentElement.firstElementChild
-        .innerHTML;
-    
-            let stamp2Title =
-            e.target.parentElement.parentElement.parentElement.firstElementChild.textContent;
+          e.target.parentElement.parentElement.parentElement.firstElementChild
+            .innerHTML;
 
-            console.log(stamp2Title)
+        let stamp2Title =
+          e.target.parentElement.parentElement.parentElement.firstElementChild
+            .textContent;
+
+        console.log(stamp2Title);
         localArray.forEach((item) => {
           if (item.title == stampTitle) {
             let itemIndex = localArray.indexOf(item);
@@ -311,17 +310,17 @@ console.log(stampTitle)
             localStorage.clear();
             localStorage.setItem(localArray, JSON.stringify(localArray));
             console.log(localArray);
-          }else if (item.videoTitle == stamp2Title) {
+          } else if (item.videoTitle == stamp2Title) {
             let itemIndex = localArray.indexOf(item);
             localArray.splice(itemIndex, 1);
             localStorage.clear();
             localStorage.setItem(localArray, JSON.stringify(localArray));
             console.log(localArray);
-       
           }
         });
-    
-        e.target.parentElement.parentElement.parentElement.style.display = "none";
+
+        e.target.parentElement.parentElement.parentElement.style.display =
+          "none";
       }
     });
   }
@@ -330,10 +329,7 @@ console.log(stampTitle)
 // fetch data from local storage on page refresh or window reopen //////////////////////////////////////////////////////////
 
 function updatePage() {
-
-  
   //object is stored in local storage as the value. I'm now accessing the object by referencing the value.
-
 
   for (const [Title, Time] of Object.entries(localStorage)) {
     localArray.push(Time);
@@ -345,11 +341,7 @@ function updatePage() {
 
   console.log(localArray);
 
-  
-
   localArray.forEach((item) => {
-    
-   
     stampContainer.innerHTML += `<div class="stamps stamps-title "><div id="vid-title-modal" class="delete-modal">
     <span>Delete?</span> 
     <div class="btn-wrapper">
@@ -371,66 +363,42 @@ function updatePage() {
   
 </div>`;
 
-let videoTitle = document.querySelectorAll(".vid-title");
-let  stampTitle = document.querySelectorAll(".title");
-let time = document.querySelectorAll(".time");
+    let videoTitle = document.querySelectorAll(".vid-title");
+    let stampTitle = document.querySelectorAll(".title");
+    let time = document.querySelectorAll(".time");
 
+    videoTitle.forEach((title) => {
+      if (title.textContent == "undefined") {
+        title.parentElement.style.display = "none";
+      }
+    });
 
-videoTitle.forEach(title => {
+    stampTitle.forEach((title) => {
+      if (title.textContent == "undefined") {
+        title.parentElement.style.display = "none";
+      }
+    });
 
-  if(title.textContent == 'undefined'){
+    time.forEach((title) => {
+      if (title.textContent == "undefined") {
+        title.parentElement.style.display = "none";
+      }
+    });
 
-  
-    title.parentElement.style.display = 'none'
-  }
+    let stampsTitle = document.querySelectorAll(".stamps-title");
 
-})
+    // This is repeat code invoke the one event listener
 
-stampTitle.forEach(title => {
-
-  if(title.textContent == 'undefined'){
-
-  
-    title.parentElement.style.display = 'none'
-  }
-
-})
-
-time.forEach(title => {
-
-  if(title.textContent == 'undefined'){
-
-  
-    title.parentElement.style.display = 'none'
-  }
-
-})
-
-let stampsTitle = document.querySelectorAll(".stamps-title");
-
-
-
-
-// This is repeat code invoke the one event listener
-
-stampsTitle.forEach((item) => {
-  item.addEventListener("click", function (e) {
-    item.firstElementChild.style.display = "flex";
-    console.log("fired");
+    stampsTitle.forEach((item) => {
+      item.addEventListener("click", function (e) {
+        item.firstElementChild.style.display = "flex";
+        console.log("fired");
+      });
+    });
   });
-});
-
-
-  });
-
-
 }
 
 updatePage();
-
-
-
-
 
 //closes modal/popup
 closeModal.addEventListener("click", function () {
@@ -469,8 +437,6 @@ deleteDataModal.addEventListener("click", function (e) {
     localStorage.setItem(localArray, JSON.stringify(localArray));
     deleteDataModal.style.display = "none";
     stampContainer.innerHTML = "";
-    
-    
   }
 
   if (e.target.classList.contains("btn-close")) {
@@ -486,8 +452,8 @@ document.addEventListener("click", function (e) {
     let stampTitle =
       e.target.parentElement.parentElement.parentElement.firstElementChild
         .innerHTML;
-console.log(stampTitle)
-        
+    console.log(stampTitle);
+
     localArray.forEach((item) => {
       if (item.title == stampTitle) {
         let itemIndex = localArray.indexOf(item);
@@ -495,19 +461,15 @@ console.log(stampTitle)
         localStorage.clear();
         localStorage.setItem(localArray, JSON.stringify(localArray));
         console.log(localArray);
-        e.target.parentElement.parentElement.parentElement.style.display = "none";
+        e.target.parentElement.parentElement.parentElement.style.display =
+          "none";
       }
     });
-
-    
-
-  
   }
-  if (e.target.classList.contains("btn-delete2")){
-
+  if (e.target.classList.contains("btn-delete2")) {
     let stamp2Title =
-    e.target.parentElement.parentElement.parentElement.lastChild.innerHTML;
-console.log(stamp2Title)
+      e.target.parentElement.parentElement.parentElement.lastChild.innerHTML;
+    console.log(stamp2Title);
 
     localArray.forEach((item) => {
       if (item.videoTitle == stamp2Title) {
@@ -516,15 +478,9 @@ console.log(stamp2Title)
         localStorage.clear();
         localStorage.setItem(localArray, JSON.stringify(localArray));
         console.log(localArray);
-        e.target.parentElement.parentElement.parentElement.style.display = "none";
-      
-      } });
-
+        e.target.parentElement.parentElement.parentElement.style.display =
+          "none";
+      }
+    });
   }
-
-
-
 });
-
-
-
