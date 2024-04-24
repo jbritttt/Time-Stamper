@@ -417,6 +417,18 @@ console.log(stampContainer);
 
 clearData.addEventListener("click", function () {
   deleteDataModal.style.display = "block";
+  if(localArray.length == 0){
+  
+  deleteDataModal.innerHTML = `<br/><p>You dont currently have any items to delete!</p><br/> `
+
+setTimeout(hideMessage,2000)
+
+function hideMessage(){
+  deleteDataModal.style.display = "none";
+}
+
+  
+  }   
 });
 
 stamp.forEach((item) => {
