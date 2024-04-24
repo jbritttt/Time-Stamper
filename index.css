@@ -411,6 +411,7 @@ input::-webkit-inner-spin-button {
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
+  
 }
 
 /* When the radio button is checked, add a blue background */
@@ -425,11 +426,13 @@ input::-webkit-inner-spin-button {
   content: "";
   position: absolute;
   display: none;
+ 
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
+.container  input:checked ~ .checkmark:after {
   display: block;
+  
 }
 
 /* Style the indicator (dot/circle) */
@@ -440,7 +443,9 @@ input::-webkit-inner-spin-button {
   height: 8px;
   border-radius: 50%;
   background: white;
+
 }
+
 
 
 

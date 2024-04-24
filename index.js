@@ -129,16 +129,17 @@ let localArray = [];
 
 // functionality to create a new time stamp.//////////////////////////////////////////////////////////////////////
 
-let check = document.querySelectorAll(".checkmark");
+let container = document.querySelectorAll(".container");
 
 let titleOrStamp = true;
 
-check.forEach((item) => {
+container.forEach((item) => {
   item.addEventListener("click", function (e) {
     if (e.target.classList.contains("stamp-checked")) {
       console.log("Stamp input is checked");
       titleOrStamp = false;
-    } else {
+      
+    } else if (e.target.classList.contains("container")){
       console.log("Title input is checked");
       titleOrStamp = true;
     }
