@@ -135,11 +135,11 @@ let titleOrStamp = true;
 
 container.forEach((item) => {
   item.addEventListener("click", function (e) {
-    if (e.target.classList.contains("stamp-checked")) {
+    if (e.target.classList.contains("stamp1")) {
       console.log("Stamp input is checked");
       titleOrStamp = false;
       
-    } else if (e.target.classList.contains("container")){
+    } else if (e.target.classList.contains("stamp2")){
       console.log("Title input is checked");
       titleOrStamp = true;
     }
